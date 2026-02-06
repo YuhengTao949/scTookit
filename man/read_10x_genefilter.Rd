@@ -26,11 +26,9 @@ ensuring unique gene symbol representation. Filters out low-quality cells and ge
 while resolving duplicate gene symbols by retaining the highest expressed transcript.
 }
 \examples{
-\dontrun{
 seurat_obj <- read_10x_genefilter(
   filename = "sample1",
   data_path = "/path/to/data",
   features_filename = "features.tsv.gz"
 )
-}
 }

@@ -17,17 +17,14 @@
 #' @importFrom Seurat Read10X CreateSeuratObject
 #' @importFrom Matrix rowMeans
 #' @importFrom dplyr filter arrange desc distinct
-#' @importFrom utils read.table
 #' @export
 #'
 #' @examples
-#' \dontrun{
 #' seurat_obj <- read_10x_genefilter(
 #'   filename = "sample1",
 #'   data_path = "/path/to/data",
 #'   features_filename = "features.tsv.gz"
 #' )
-#' }
 read_10x_genefilter <- function(filename, data_path, features_filename) {
 
   scdata <- Seurat::Read10X(data.dir = data_path, gene.column = 1)
