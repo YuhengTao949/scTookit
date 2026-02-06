@@ -12,7 +12,7 @@ MarkDoublets(seu, PN = NULL)
 \item{PN}{Expected doublet rate. If NULL, automatically calculated using calculate_pN()}
 }
 \value{
-A data.frame containing doublet scores and predictions for each barcode.
+A seurat object whose metadata contain doublet scores and predictions for each barcode.
 }
 \description{
 Performs doublet detection by wrapping the Python Scrublet package via reticulate.
