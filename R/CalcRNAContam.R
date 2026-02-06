@@ -1,4 +1,4 @@
-#' RNA Contamination Filtering
+#' RNA Contamination Calculating
 #'
 #' Estimates and filters out contamination from ambient RNA using DecontX algorithm.
 #' Adds contamination scores and multiple binary classification thresholds to metadata.
@@ -16,8 +16,8 @@
 #' @export
 #'
 #' @examples
-#' seu <- RNA_contamination_filter(seu)
-RNA_contamination_filter <- function(seu){
+#' seu <- CalcRNAContam(seu)
+CalcRNAContam <- function(seu){
 
   counts <- GetAssayData(object = seu, slot = "counts")
   sce <- SingleCellExperiment(list(counts = counts))
