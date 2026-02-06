@@ -2,27 +2,27 @@
 % Please edit documentation in R/seurat_qc.R
 \name{sample_qc}
 \alias{sample_qc}
-\title{Sample Quality Control}
+\title{Sample-Level Quality Control and Filtering}
 \usage{
-sample_qc(sc)
+sample_qc(seu, plotdir, filename)
 }
 \arguments{
-\item{sc}{A Seurat object containing single-cell RNA sequencing data}
+\item{seu}{A Seurat object containing single-cell data with metadata}
+
+\item{plotdir}{Directory path where the QC plot should be saved}
+
+\item{filename}{Base filename for output plot (without file extension)}
 }
 \value{
-Modified Seurat object with added QC metrics in meta.data:
-  - percent_mito_by_sample (if MT genes present)
-  - percent_ribo_by_sample (if RP genes present)
-  - percent_hb_by_sample (if HB genes present)
-  - percent_hsp_by_sample (if HSP genes present)
-  - percent_dissociation_by_sample (if dissociation genes present)
+A filtered Seurat object after applying QC thresholds. Original and remaining cell counts
+        are printed to the console.
 }
 \description{
-Calculates various quality control metrics for each sample including
-mitochondrial, ribosomal, hemoglobin, heat shock protein, and dissociation
-gene percentages. Adds these metrics as new columns to the meta.data slot
-of the input Seurat object.
+Performs comprehensive quality control by generating diagnostic violin plots for key QC metrics,
+applies automated threshold-based filtering, and returns a filtered Seurat object.
 }
 \examples{
-seurat_obj <- sample_qc(seurat_obj)
+filtered_seu <- sample_qc(seu = my_seurat,
+                         plotdir = "qc_plots",
+                         filename = "sample_qc_report")
 }
