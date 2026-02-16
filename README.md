@@ -7,5 +7,5 @@ My single cell data analysis toolkit.
 You can install the development version of scTookit like so:
 
 ``` r
-devtools::install_github("YuhengTao949/scTookit")
+devtools::install_github("AlexanderTao949/scTookit")
 ```
