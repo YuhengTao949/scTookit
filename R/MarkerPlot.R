@@ -77,7 +77,8 @@ MarkDotplot <- function(markerlist = NULL, seu = NULL, assay = "RNA", slot = "co
   result_data$AvgExpr <- result_data$AvgExpr / max_vals[result_data$Gene]
 
   result_data$Function <- factor(result_data$Function, levels = names(markerlist))
-  result_data$Gene <- factor(result_data$Gene, levels = rev(genes_all))
+  unique_genes <- rev(genes_all[!duplicated(genes_all)])
+  result_data$Gene <- factor(result_data$Gene, levels = unique_genes)
   result_data$Group <- factor(result_data$Group, levels = rev(levels(Idents(seu))))
 
   p <- ggplot(result_data,
